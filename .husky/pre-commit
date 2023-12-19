@@ -4,3 +4,5 @@
 yarn format
 yarn lint:fix
 yarn test
+npm test
+

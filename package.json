@@ -15,6 +15,8 @@
     "vue": "^3.3.11"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "@vitejs/plugin-vue": "^4.5.2",
     "eslint": "^8.56.0",
@@ -25,6 +27,7 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.19.2",
+    "husky": "^8.0.3",
     "prettier": "^3.1.1",
     "typescript": "*",
     "vite": "^5.0.8",

@@ -1,14 +1,13 @@
 module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    'header-case': [2, 'always', ['lower-case']],
-    'body-case': [2, 'always', ['lower-case']],
-    'scope-case': [2, 'always', ['lower-case']],
+    'subject-empty': [2, 'never'],
     'subject-case': [2, 'always', ['lower-case']],
+    'subject-max-length': [2, 'always', 30],
     'type-case': [2, 'always', ['lower-case']],
     'type-enum': [
       2,
-      'never',
+      'always',
       [
         'build',
         'chore',
@@ -23,6 +22,5 @@ module.exports = {
         'test',
       ],
     ],
-    'scope-enum': [2, 'never'],
   },
 }

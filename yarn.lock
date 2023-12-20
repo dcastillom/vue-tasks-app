@@ -1007,6 +1007,11 @@ color-name@~1.1.4:
   resolved "https://registry.npmjs.org/color-name/-/color-name-1.1.4.tgz"
   integrity sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==
 
+commitlint-plugin-function-rules@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/commitlint-plugin-function-rules/-/commitlint-plugin-function-rules-3.0.0.tgz#d89a6af40195aed910a1ccbb7e62eaac516c1665"
+  integrity sha512-Z8ovQJ3bQLC1tOJejFFeI8IMTZfLJMd2yrp/jgXZXQ2gG5Lq4EHiWsc2G5UeFLhpuN88g2SuhJonCg8/Ays47w==
+
 compare-func@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/compare-func/-/compare-func-2.0.0.tgz"

@@ -1,17 +1,8 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" /> </a
-    >https://eslint.vuejs.org/rules/max-attributes-per-line.htmlhttps://eslint.vuejs.org/rules/html-closing-bracket-newline.html
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <div>App.vue</div>
+  <router-view :key="$route.fullPath"></router-view>
 </template>
 
 <style scoped>

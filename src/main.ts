@@ -1,7 +1,9 @@
-import { createApp } from 'vue'
 import './style.css'
-import App from './App.vue'
+
+import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
+
+import App from './App.vue'
 import HelloComponent from './components/HelloComponent.vue'
 import HomeComponent from './components/HomeComponent.vue'
 

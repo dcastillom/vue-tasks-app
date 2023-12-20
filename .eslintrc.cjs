@@ -8,10 +8,13 @@ module.exports = {
     sourceType: 'module',
     parser: '@typescript-eslint/parser',
   },
+  plugins: ['import', 'simple-import-sort'],
+
   rules: {
     semi: 0,
     indent: [2, 2],
-    'no-unused-expressions': ['error', {}],
+    'simple-import-sort/imports': 1,
+    'simple-import-sort/exports': 1,
     'vue/html-self-closing': 0,
     'vue/max-attributes-per-line': 0,
     'vue/html-closing-bracket-newline': 0,

@@ -9,7 +9,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
   },
   plugins: ['import', 'simple-import-sort'],
-
+  parser: 'vue-eslint-parser',
   rules: {
     semi: 0,
     indent: [2, 2],

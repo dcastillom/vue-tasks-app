@@ -4,10 +4,6 @@ module.exports = {
     es2021: true,
   },
   extends: ['plugin:vue/vue3-recommended'],
-  parserOptions: {
-    sourceType: 'module',
-    parser: '@typescript-eslint/parser',
-  },
   plugins: ['import', 'simple-import-sort'],
   parser: 'vue-eslint-parser',
   rules: {

@@ -1,20 +1,21 @@
 import './style.css'
 
+import { About, Home } from '@views'
 import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 import App from './App.vue'
-import HelloComponent from './components/HelloComponent.vue'
-import HomeComponent from './components/HomeComponent.vue'
+
+const app = createApp(App)
 
 const routes = [
   {
     path: '/',
-    component: HomeComponent,
+    component: async () => await Home,
   },
   {
-    path: '/hello',
-    component: HelloComponent,
+    path: '/about',
+    component: async () => await About,
   },
 ]
 
@@ -23,6 +24,5 @@ const router = createRouter({
   routes,
 })
 
-const app = createApp(App)
 app.use(router)
 app.mount('#app')

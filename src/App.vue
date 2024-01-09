@@ -1,4 +1,5 @@
 <template>
+  <h1 class="text-xl font-bold underline">Hello world!</h1>
   <p><RouterLink to="/">Home</RouterLink></p>
   <p><RouterLink to="/about">About</RouterLink></p>
   <p><RouterLink to="/register">Register</RouterLink></p>

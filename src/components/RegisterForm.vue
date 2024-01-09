@@ -14,6 +14,7 @@
 
 <script>
 import { createZodPlugin } from '@formkit/zod'
+
 import { registerSchema } from '@/schemas/register'
 
 const [zodPlugin, submitHandler] = createZodPlugin(

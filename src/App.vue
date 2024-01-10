@@ -1,22 +1,40 @@
 <template>
-  <h1 class="text-xl font-bold underline">Hello world!</h1>
   <p><RouterLink to="/">Home</RouterLink></p>
   <p><RouterLink to="/about">About</RouterLink></p>
   <p><RouterLink to="/register">Register</RouterLink></p>
+  <p><RouterLink to="/login">Login</RouterLink></p>
+  <button v-if="isLoggedIn" @click="handleSignOut">Sign out</button>
   <router-view :key="$route.fullPath"></router-view>
 </template>
 
 <script>
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 export default {
   name: 'AppComponent',
 
   data() {
-    return {}
+    return {
+      auth: null,
+      isLoggedIn: false,
+    }
   },
 
-  computed: {},
+  methods: {
+    handleSignOut() {
+      signOut(this.auth)
+        .then(() => {
+          console.log('signOut')
+        })
+        .catch((error) => {
+          console.log('error', error)
+        })
+    },
+  },
 
-  methods: {},
+  mounted() {
+    this.auth = getAuth()
+    onAuthStateChanged(this.auth, (user) => (this.isLoggedIn = !!user))
+  },
 }
 </script>
 

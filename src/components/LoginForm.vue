@@ -7,22 +7,21 @@
   >
     <FormKit type="email" name="email" label="email" />
     <FormKit type="password" name="password" label="password" />
-    <FormKit type="password" name="confirmPassword" label="confirmPassword" />
   </FormKit>
 </template>
 
 <script>
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { createZodPlugin } from '@formkit/zod'
-import { registerSchema } from '@/schemas/register'
+import { loginSchema } from '@/schemas/login'
 
 const [zodPlugin, submitHandler] = createZodPlugin(
-  registerSchema,
+  loginSchema,
   async (formData) => {
     const { email, password } = formData
-    createUserWithEmailAndPassword(getAuth(), email, password)
+    signInWithEmailAndPassword(getAuth(), email, password)
       .then((userCredential) => {
-        // Signed in
+        // Loged in
         const user = userCredential.user
         console.log('user', user)
         // ...
@@ -36,11 +35,11 @@ const [zodPlugin, submitHandler] = createZodPlugin(
 )
 
 export default {
-  name: 'RegisterForm',
+  name: 'LoginForm',
 
   data() {
     return {
-      registerSchema,
+      loginSchema,
       submitHandler,
       zodPlugin,
     }

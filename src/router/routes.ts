@@ -1,6 +1,7 @@
 import About from '@/views/About.vue'
 import Home from '@/views/Home.vue'
 import Register from '@/views/Register.vue'
+import Login from '@/views/Login.vue'
 
 export const routes = [
   {
@@ -14,5 +15,9 @@ export const routes = [
   {
     path: '/register',
     component: async () => await Register,
+  },
+  {
+    path: '/login',
+    component: async () => await Login,
   },
 ]

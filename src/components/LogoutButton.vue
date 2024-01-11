@@ -4,8 +4,15 @@
 
 <script>
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+import { useRouter } from 'vue-router'
+
 export default {
   name: 'LogoutButton',
+
+  setup() {
+    const router = useRouter()
+    return { router }
+  },
 
   data() {
     return {
@@ -20,6 +27,7 @@ export default {
       if (user) {
         this.isLoggedIn = true
       } else {
+        this.router.push('/login')
         this.isLoggedIn = false
       }
     })
@@ -29,7 +37,7 @@ export default {
     handleSignOut() {
       signOut(this.auth)
         .then(() => {
-          console.log('signOut')
+          console.log(' signOut')
         })
         .catch((error) => {
           console.log('error signOut', error)

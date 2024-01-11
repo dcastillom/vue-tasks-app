@@ -23,7 +23,7 @@
 <script>
 import { createZodPlugin } from '@formkit/zod'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 import { loginSchema } from '@/schemas/login'
 

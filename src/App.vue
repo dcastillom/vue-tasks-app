@@ -3,37 +3,17 @@
   <p><RouterLink to="/about">About</RouterLink></p>
   <p><RouterLink to="/register">Register</RouterLink></p>
   <p><RouterLink to="/login">Login</RouterLink></p>
-  <button v-if="isLoggedIn" @click="handleSignOut">Sign out</button>
+  <LogoutButton />
   <router-view :key="$route.fullPath"></router-view>
 </template>
 
 <script>
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
+import LogoutButton from '@/components/LogoutButton.vue'
 export default {
   name: 'AppComponent',
 
-  data() {
-    return {
-      auth: null,
-      isLoggedIn: false,
-    }
-  },
-
-  methods: {
-    handleSignOut() {
-      signOut(this.auth)
-        .then(() => {
-          console.log('signOut')
-        })
-        .catch((error) => {
-          console.log('error', error)
-        })
-    },
-  },
-
-  mounted() {
-    this.auth = getAuth()
-    onAuthStateChanged(this.auth, (user) => (this.isLoggedIn = !!user))
+  components: {
+    LogoutButton,
   },
 }
 </script>

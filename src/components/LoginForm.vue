@@ -5,48 +5,52 @@
     :config="{ validationVisibility: 'dirty' }"
     @submit="submitHandler"
   >
-    <FormKit type="email" name="email" label="email" />
-    <FormKit type="password" name="password" label="password" />
+    <FormKit
+      type="email"
+      name="email"
+      label="email"
+      value="danielcastillomarfull@gmail.com"
+    />
+    <FormKit
+      type="password"
+      name="password"
+      label="password"
+      value="Eelcdv1977--"
+    />
   </FormKit>
 </template>
 
 <script>
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { createZodPlugin } from '@formkit/zod'
-import { loginSchema } from '@/schemas/login'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { useRoute, useRouter } from 'vue-router'
 
-const [zodPlugin, submitHandler] = createZodPlugin(
-  loginSchema,
-  async (formData) => {
-    const { email, password } = formData
-    signInWithEmailAndPassword(getAuth(), email, password)
-      .then((userCredential) => {
-        // Loged in
-        const user = userCredential.user
-        console.log('user', user)
-        // ...
-      })
-      .catch((error) => {
-        const errorCode = error.code
-        const errorMessage = error.message
-        // ..
-      })
-  }
-)
+import { loginSchema } from '@/schemas/login'
 
 export default {
   name: 'LoginForm',
 
-  data() {
-    return {
+  setup() {
+    const router = useRouter()
+    const [zodPlugin, submitHandler] = createZodPlugin(
       loginSchema,
-      submitHandler,
+      async ({ email, password }) => {
+        signInWithEmailAndPassword(getAuth(), email, password)
+          .then((userCredential) => {
+            const user = userCredential.user
+            router.push('/')
+          })
+          .catch(async (error) => {
+            const errorCode = error.code
+            const errorMessage = error.message
+          })
+      }
+    )
+
+    return {
       zodPlugin,
+      submitHandler,
     }
   },
-
-  methods: {},
 }
 </script>
-
-<style module></style>

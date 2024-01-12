@@ -27,7 +27,7 @@ export default {
       if (user) {
         this.isLoggedIn = true
       } else {
-        this.router.push('/login')
+        this.router.push('/')
         this.isLoggedIn = false
       }
     })

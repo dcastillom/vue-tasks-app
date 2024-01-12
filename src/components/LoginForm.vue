@@ -9,13 +9,13 @@
       type="email"
       name="email"
       label="email"
-      value="danielcastillomarfull@gmail.com"
+      value="vuetasksapp@yopmail.com"
     />
     <FormKit
       type="password"
       name="password"
       label="password"
-      value="Eelcdv1977--"
+      value="12341234"
     />
   </FormKit>
 </template>

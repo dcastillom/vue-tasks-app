@@ -32,7 +32,8 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
-    "src/plugins/formik.js"
+    "src/plugins/formik.js",
+    "src/router/guards.js"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

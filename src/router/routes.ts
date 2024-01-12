@@ -5,22 +5,25 @@ import Register from '@/views/Register.vue'
 
 export const routes = [
   {
-    name: 'Home',
+    name: 'home',
     path: '/',
     component: async () => await Home,
   },
   {
-    name: 'About',
+    name: 'about',
     path: '/about',
     component: async () => await About,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
-    name: 'Register',
+    name: 'register',
     path: '/register',
     component: async () => await Register,
   },
   {
-    name: 'Login',
+    name: 'login',
     path: '/login',
     component: async () => await Login,
   },

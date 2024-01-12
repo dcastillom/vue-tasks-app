@@ -25,6 +25,8 @@ import { createZodPlugin } from '@formkit/zod'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { useRouter } from 'vue-router'
 
+import { mapActions } from 'pinia'
+
 import { loginSchema } from '@/schemas/login'
 
 export default {
@@ -36,9 +38,10 @@ export default {
       loginSchema,
       async ({ email, password }) => {
         signInWithEmailAndPassword(getAuth(), email, password)
-          .then((userCredential) => {
-            const user = userCredential.user
+          .then((user) => {
+            console.log('user', user)
             router.push('/')
+            setUser(user).then
           })
           .catch(async (error) => {
             const errorCode = error.code

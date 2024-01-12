@@ -6,31 +6,29 @@
 import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'
 import { useRouter } from 'vue-router'
 
+import { mapState } from 'pinia'
+
+import { useUserStore } from '@/stores/user'
+
 export default {
   name: 'LogoutButton',
 
   setup() {
     const router = useRouter()
-    return { router }
   },
 
   data() {
     return {
       auth: null,
-      isLoggedIn: false,
     }
+  },
+
+  computed: {
+    ...mapState(useUserStore, ['isLoggedIn']),
   },
 
   mounted() {
     this.auth = getAuth()
-    onAuthStateChanged(this.auth, (user) => {
-      if (user) {
-        this.isLoggedIn = true
-      } else {
-        this.router.push('/')
-        this.isLoggedIn = false
-      }
-    })
   },
 
   methods: {
